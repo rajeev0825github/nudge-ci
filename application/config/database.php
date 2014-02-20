@@ -15,6 +15,9 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 
 if (defined('CIUnit_Version')) {
 	$active_group = 'local_test';
+        if(isset($_ENV['CIRCLE_ENV'])){
+            $active_group = 'server_test';
+        }
 }
 
 /*
@@ -97,6 +100,23 @@ $db['local_test']['dbcollat'] = 'utf8_general_ci';
 $db['local_test']['swap_pre'] = '';
 $db['local_test']['autoinit'] = TRUE;
 $db['local_test']['stricton'] = FALSE;
+
+$db['server_test']['hostname'] = 'localhost';
+//$db['server_test']['port'] = 8889;
+$db['server_test']['username'] = 'ubuntu';
+$db['server_test']['password'] = '';
+$db['server_test']['database'] = 'circle_test';
+$db['server_test']['dbdriver'] = 'mysql';
+$db['server_test']['dbprefix'] = '';
+$db['server_test']['pconnect'] = TRUE;
+$db['server_test']['db_debug'] = TRUE;
+$db['server_test']['cache_on'] = FALSE;
+$db['server_test']['cachedir'] = '';
+$db['server_test']['char_set'] = 'utf8';
+$db['server_test']['dbcollat'] = 'utf8_general_ci';
+$db['server_test']['swap_pre'] = '';
+$db['server_test']['autoinit'] = TRUE;
+$db['server_test']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
