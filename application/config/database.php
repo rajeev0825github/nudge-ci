@@ -15,7 +15,7 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 
 if (defined('CIUnit_Version')) {
 	$active_group = 'local_test';
-        if(isset($_ENV['CIRCLE_ENV'])){
+        if(isset($_ENV['CIRCLECI'])){
             $active_group = 'server_test';
         }
 }
