@@ -42,11 +42,11 @@ test:
     - phpunit -c tests/phpunit.xml tests # use PHPunit for testing
 
 ## Customize deployment commands
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: foo-bar-123
+#deployment:
+#  staging:
+#    branch: master
+#    heroku:
+#      appname: foo-bar-123
 
 ## Custom notifications
 notify:
