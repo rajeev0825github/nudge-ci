@@ -67,7 +67,7 @@
 <body>
 
 <div id="container">
-	<h1>Welcome to  continuous integration test!</h1>
+	<h1>Welcome to Nudge continuous integration test!</h1>
 
 	<div id="body">
 		<p>
