@@ -14,7 +14,17 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/test/nudge-ci';
+
+if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
+  include( dirname( __FILE__ ) . '/local-config.php' );
+} else {
+    $host = explode(".", $_SERVER['HTTP_HOST']);
+    if(isset($host[1]) && $host[1] == "beingbui") {
+        $config['base_url'] = 'http://nudgebutton.beingbui.lt';
+    } else {
+        $config['base_url'] = 'http://ndg.io';
+    }
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +234,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'fdrr$3sc';
 
 /*
 |--------------------------------------------------------------------------

@@ -14,6 +14,7 @@ class Index extends CI_Controller
     }
     
     function index(){
+        $this->UserModel->checkDatabase();
         $this->load->view('index');
     }
     

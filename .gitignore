@@ -8,4 +8,5 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 user_guide/
-/nbproject/private/
+/nbproject/private
+local-config.php

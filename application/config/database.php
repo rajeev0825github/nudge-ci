@@ -1,4 +1,22 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+$active_group = 'default';
+
+if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
+    include( dirname( __FILE__ ) . '/local-config.php' );
+  } else {
+    $host = explode(".", $_SERVER['HTTP_HOST']);
+    if(isset($host[1]) && $host[1] == "beingbui") {
+        $active_group = "staging";
+    } else {
+        $active_group = "production";
+    }
+}
+
+if (defined('CIUnit_Version')) {
+	$active_group = 'local_test';
+}
+
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -44,9 +62,7 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
-
-$active_group = 'default';
-$active_record = TRUE;
+ 
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = '';
@@ -64,6 +80,23 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+
+$db['local_test']['hostname'] = 'localhost';
+//$db['local_test']['port'] = 8889;
+$db['local_test']['username'] = 'root';
+$db['local_test']['password'] = '';
+$db['local_test']['database'] = 'button_test';
+$db['local_test']['dbdriver'] = 'mysql';
+$db['local_test']['dbprefix'] = '';
+$db['local_test']['pconnect'] = TRUE;
+$db['local_test']['db_debug'] = TRUE;
+$db['local_test']['cache_on'] = FALSE;
+$db['local_test']['cachedir'] = '';
+$db['local_test']['char_set'] = 'utf8';
+$db['local_test']['dbcollat'] = 'utf8_general_ci';
+$db['local_test']['swap_pre'] = '';
+$db['local_test']['autoinit'] = TRUE;
+$db['local_test']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

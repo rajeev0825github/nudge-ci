@@ -6,10 +6,17 @@
 
 class IndexControllerTest extends CIUnit_TestCase
 {
+    protected $tables = array(
+        'ysb_users' => 'ysb_users'
+       
+    );
+    
     public function setUp()
     {
         // Set the tested controller
         $this->CI = set_controller('index');
+        
+        $this->dbfixt($this->tables);
     }
     
     public function testIndex() {
