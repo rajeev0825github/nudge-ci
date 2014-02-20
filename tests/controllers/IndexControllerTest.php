@@ -33,5 +33,13 @@ class IndexControllerTest extends CIUnit_TestCase
         $this->assertNotEquals(FALSE, strpos($out, 'Nudge'));
     }
 
+    /**
+     * @covers Index::sample_page()
+     */
+    public function testSamplePage(){
+        $actual = $this->CI->sample_page();
+        
+        $this->assertTrue($actual);
+    }
   
 }

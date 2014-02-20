@@ -18,4 +18,7 @@ class Index extends CI_Controller
         $this->load->view('index');
     }
     
+    function sample_page(){
+        return true;
+    }
 }
